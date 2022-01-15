@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import './style/Tile.css';
 
-function Tile() {
-    const [letter, setLetter] = useState("d");
-  
+function Tile(props) {
     return (
-      <div className='game-tile'>{letter}</div>
+      <div className='game-tile'>{props.value}</div>
     );
 }
 

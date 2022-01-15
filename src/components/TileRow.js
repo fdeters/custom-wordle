@@ -4,11 +4,15 @@ import './style/TileRow.css';
 
 function TileRow() {
     const [rowLength, setRowLength] = useState(5);
+    const [inputs, setInputs] = useState("");
 
     const createRow = (numTiles) => {
         let row = [];
         for (let i=0; i<numTiles; i++) {
-            row.push(<Tile></Tile>)
+            row.push(
+                <Tile key={i.toString()}
+                      value="" />
+            );
         }
         return row;
     }
