@@ -1,8 +1,9 @@
 import Keyboard from 'react-simple-keyboard';
 import 'react-simple-keyboard/build/css/index.css';
 
-function GameKeyboard() {
+function GameKeyboard(props) {
     const handleChange = (input) => {
+      props.handleInput(input);
       console.log("Input changed: ", input);
     }
   

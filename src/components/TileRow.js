@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import Tile from './Tile.js';
 import './style/TileRow.css';
 
-function TileRow() {
+function TileRow(props) {
     const [rowLength, setRowLength] = useState(5);
-    const [inputs, setInputs] = useState("");
-
+    
     const createRow = (numTiles) => {
         let row = [];
         for (let i=0; i<numTiles; i++) {
             row.push(
                 <Tile key={i.toString()}
-                      value="" />
+                      value={props.inputs[i]} />
             );
         }
         return row;
