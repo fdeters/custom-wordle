@@ -1,0 +1,10 @@
+.game-tile {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    margin: 2px;
+    border: 2px solid gray;
+    text-align: center;
+    font-size: 35px;
+}

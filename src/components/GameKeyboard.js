@@ -11,15 +11,17 @@ function GameKeyboard() {
     }
   
     return (
-      <Keyboard
-        layoutName={"default"}
-        onChange={handleChange}
-        onKeyPress={handleKeyPress}
-        layout={{
-          default: ["q w e r t y u i o p", "a s d f g h j k l", "{enter} z x c v b n m {bksp}"],
-        }}
-      />
+      <div className='game-keyboard'>
+        <Keyboard
+            layoutName={"default"}
+            onChange={handleChange}
+            onKeyPress={handleKeyPress}
+            layout={{
+            default: ["q w e r t y u i o p", "a s d f g h j k l", "{enter} z x c v b n m {bksp}"],
+            }}
+        />
+      </div>
     );
 }
 
-  export default GameKeyboard;
+export default GameKeyboard;
