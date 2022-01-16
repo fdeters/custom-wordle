@@ -1,4 +1,6 @@
 .game-board {
-    display: inline-block;
+    display: grid;
     align-items: center;
+    margin: auto;
+    padding-bottom: 60px;
 }

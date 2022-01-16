@@ -13,7 +13,7 @@ function Board (props) {
     
     const renderBoard = (numRows) => {
         let board = [];
-        for (let i=0; i<numRows-1; i++) {
+        for (let i=0; i<numRows; i++) {
             board.push(
                 renderTileRow(i)
             );
