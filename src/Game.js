@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import Board from './components/Board.js';
 import GameKeyboard from './components/GameKeyboard';
 import './Game.css';
@@ -17,6 +17,25 @@ function Game() {
   const handleInput = (input) => {
     setInputs(input);
   }
+
+  const handleRowSubmission = () => {
+    // Handles a user pressing "enter"
+    let isValidSubmission;
+
+    if (inputs.length < rowLength) {
+      isValidSubmission = false;
+      console.log("Your guess is too short :(")
+    } else {
+      isValidSubmission = true;
+      let tempRowStates = rowStates;
+      tempRowStates[currentRow] = inputs.split();
+      setRowStates(tempRowStates);
+      setCurrentRow(currentRow + 1);
+      setInputs("");
+    }
+
+    return isValidSubmission;
+  }
   
   return (
     <div className='game'>
@@ -24,8 +43,9 @@ function Game() {
              rowLength={rowLength} 
              boardLength={boardLength} 
              currentRow={currentRow}
-             rowStates={rowStates} ></Board>
-      <GameKeyboard handleInput={handleInput}></GameKeyboard>
+             rowStates={rowStates}></Board>
+      <GameKeyboard handleInput={handleInput}
+                    handleSubmission={handleRowSubmission}></GameKeyboard>
     </div>
   );
 }

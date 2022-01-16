@@ -1,5 +1,7 @@
+import { keyboard } from '@testing-library/user-event/dist/keyboard';
 import Keyboard from 'react-simple-keyboard';
 import 'react-simple-keyboard/build/css/index.css';
+import './style/GameKeyboard.css';
 
 function GameKeyboard(props) {
     const handleChange = (input) => {
@@ -8,12 +10,20 @@ function GameKeyboard(props) {
     }
   
     const handleKeyPress = (button) => {
+      // handle attempted word submission
+      if (button === "{enter}") { 
+        if (props.handleSubmission()) {
+          keyboard.current.clearInput();
+        }
+      }
+      
       console.log("Button pressed: ", button);
     }
   
     return (
       <div className='game-keyboard'>
         <Keyboard
+            keyboardRef={r => (keyboard.current = r)}
             layoutName={"default"}
             onChange={handleChange}
             onKeyPress={handleKeyPress}
