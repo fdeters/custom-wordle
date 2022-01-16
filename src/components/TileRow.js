@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import Tile from './Tile.js';
 import './style/TileRow.css';
 
-function TileRow(props) {
-    const [rowLength, setRowLength] = useState(5);
-    
-    const createRow = (numTiles) => {
+function TileRow(props) {    
+    const renderRow = (numTiles) => {
         let row = [];
         for (let i=0; i<numTiles; i++) {
             row.push(
                 <Tile key={i.toString()}
-                      value={props.inputs[i]} />
+                      value={props.content[i]} />
             );
         }
         return row;
@@ -18,7 +16,7 @@ function TileRow(props) {
 
     return (
         <div className='game-tile-row'>
-            {createRow(rowLength)}
+            {renderRow(props.rowLength)}
         </div>
     )
 }

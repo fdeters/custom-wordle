@@ -1,10 +1,18 @@
 import React, { Component, useState } from 'react';
+import Board from './components/Board.js';
 import GameKeyboard from './components/GameKeyboard';
-import TileRow from './components/TileRow.js';
 import './Game.css';
+import createEmptyBoardState from './helpers/helpers.js';
 
 function Game() { 
+  // game format/setup states
+  const [boardLength, setBoardLength] = useState(6);
+  const [rowLength, setRowLength] = useState(5);
+
+  // in-game states
   const [inputs, setInputs] = useState("");
+  const [rowStates, setRowStates] = useState(createEmptyBoardState(boardLength, rowLength));
+  const [currentRow, setCurrentRow] = useState(0);
   
   const handleInput = (input) => {
     setInputs(input);
@@ -12,7 +20,11 @@ function Game() {
   
   return (
     <div className='game'>
-      <TileRow inputs={inputs}></TileRow>
+      <Board inputs={inputs}
+             rowLength={rowLength} 
+             boardLength={boardLength} 
+             currentRow={currentRow}
+             rowStates={rowStates} ></Board>
       <GameKeyboard handleInput={handleInput}></GameKeyboard>
     </div>
   );
