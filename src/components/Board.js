@@ -7,7 +7,6 @@ function Board (props) {
         return (
             <TileRow key={i.toString()}
                      content={i === props.currentRow ? props.inputs : props.rowStates[i].join("")}
-                    //  content={i === props.currentRow ? props.inputs : "apple"}
                      rowLength={props.rowLength} />
         );
     }
