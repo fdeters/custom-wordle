@@ -2,5 +2,6 @@
     display: grid;
     align-items: center;
     margin: auto;
+    padding-top: 15vh;
     padding-bottom: 60px;
 }
