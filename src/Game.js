@@ -11,27 +11,28 @@ function Game() {
 
   // in-game states
   const [inputs, setInputs] = useState("");
-  const [rowStates, setRowStates] = useState(createEmptyBoardState(boardLength, rowLength));
+  const [rowStates, setRowStates] = useState(
+    createEmptyBoardState(boardLength, rowLength)
+  );
   const [currentRow, setCurrentRow] = useState(0);
   
+  // functions
   const handleInput = (input) => {
     setInputs(input);
   }
 
   const handleRowSubmission = () => {
     // Handles a user pressing "enter"
-    let isValidSubmission;
+    let isValidSubmission = inputs.length === rowLength;
 
-    if (inputs.length < rowLength) {
-      isValidSubmission = false;
-      console.log("Your guess is too short :(")
-    } else {
-      isValidSubmission = true;
+    if (isValidSubmission) {
       let tempRowStates = rowStates;
       tempRowStates[currentRow] = inputs.split();
       setRowStates(tempRowStates);
       setCurrentRow(currentRow + 1);
-      setInputs("");
+      setInputs("");     
+    } else {
+      console.log("Your guess is too short :(")
     }
 
     return isValidSubmission;
@@ -39,13 +40,17 @@ function Game() {
   
   return (
     <div className='game'>
+      <header>
+        <div className='title'> ISLANDER WORDLE </div>
+      </header>
       <Board inputs={inputs}
              rowLength={rowLength} 
              boardLength={boardLength} 
              currentRow={currentRow}
              rowStates={rowStates}></Board>
       <GameKeyboard handleInput={handleInput}
-                    handleSubmission={handleRowSubmission}></GameKeyboard>
+                    handleSubmission={handleRowSubmission} 
+                    maxInputLength={rowLength} ></GameKeyboard>
     </div>
   );
 }

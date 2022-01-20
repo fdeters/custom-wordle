@@ -16,7 +16,6 @@ function GameKeyboard(props) {
           keyboard.current.clearInput();
         }
       }
-      
       console.log("Button pressed: ", button);
     }
   
@@ -25,6 +24,7 @@ function GameKeyboard(props) {
         <Keyboard
             keyboardRef={r => (keyboard.current = r)}
             layoutName={"default"}
+            theme='hg-theme-default wordle-keyboard'
             onChange={handleChange}
             onKeyPress={handleKeyPress}
             layout={{
@@ -34,7 +34,7 @@ function GameKeyboard(props) {
               '{bksp}': "\u232B",
               '{enter}': "enter"
             }}
-            maxLength={5}
+            maxLength={props.maxInputLength}
         />
       </div>
     );
