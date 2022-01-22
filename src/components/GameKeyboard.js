@@ -1,7 +1,7 @@
 import { keyboard } from '@testing-library/user-event/dist/keyboard';
 import Keyboard from 'react-simple-keyboard';
 import 'react-simple-keyboard/build/css/index.css';
-import './style/GameKeyboard.css';
+import '../style/GameKeyboard.css';
 
 function GameKeyboard(props) {
     const handleChange = (input) => {

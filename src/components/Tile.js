@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './style/Tile.css';
+import '../style/Tile.css';
 
 const letterToUpperCase = (text) => {
   return text === undefined ? "" : String(text).toUpperCase();

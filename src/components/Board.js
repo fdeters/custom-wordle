@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TileRow from './TileRow';
-import './style/Board.css';
+import '../style/Board.css';
 
 function Board (props) {   
     const renderTileRow = (i) => {

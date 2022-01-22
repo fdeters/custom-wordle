@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import Board from './components/Board.js';
-import GameKeyboard from './components/GameKeyboard';
-import './Game.css';
-import createEmptyBoardState from './helpers/helpers.js';
+import Board from './Board.js';
+import GameKeyboard from './GameKeyboard.js';
+import '../style/Game.css';
+import * as helpers from '../helpers/helpers.js';
+import wordList from '../assets/5-letter-words.json';
 
 function Game() { 
   // game format/setup states
@@ -12,7 +13,7 @@ function Game() {
   // in-game states
   const [inputs, setInputs] = useState("");
   const [rowStates, setRowStates] = useState(
-    createEmptyBoardState(boardLength, rowLength)
+    helpers.createEmptyBoardState(boardLength, rowLength)
   );
   const [currentRow, setCurrentRow] = useState(0);
   
@@ -22,8 +23,9 @@ function Game() {
   }
 
   const handleRowSubmission = () => {
-    // Handles a user pressing "enter"
+    /* Handles a user pressing "enter" */
     let isValidSubmission = inputs.length === rowLength;
+    isValidSubmission = isValidSubmission && helpers.wordIsInWordList(inputs, wordList);
 
     if (isValidSubmission) {
       let tempRowStates = rowStates;
@@ -32,7 +34,8 @@ function Game() {
       setCurrentRow(currentRow + 1);
       setInputs("");     
     } else {
-      console.log("Your guess is too short :(")
+      // TODO: this alert will now also trigger if the word isn't in the wordList, gotta fix that
+      alert("Your guess is too short :(")
     }
 
     return isValidSubmission;
