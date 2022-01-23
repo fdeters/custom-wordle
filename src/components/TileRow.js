@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Tile from './Tile.js';
-import './style/TileRow.css';
+import '../style/TileRow.css';
 
 function TileRow(props) {    
     const renderRow = (numTiles) => {
