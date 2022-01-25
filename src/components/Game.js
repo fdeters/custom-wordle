@@ -33,7 +33,9 @@ function Game() {
       setRowStates(tempRowStates);
       setCurrentRow(currentRow + 1);
       setInputs("");     
-    } else {
+    } else if (!helpers.wordIsInWordList(inputs, wordList)){ //Does this fix it?
+      alert("Your guess is not in the word list :(")
+    } else{
       // TODO: this alert will now also trigger if the word isn't in the wordList, gotta fix that
       alert("Your guess is too short :(")
     }
