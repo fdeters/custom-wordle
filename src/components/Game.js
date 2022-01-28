@@ -57,11 +57,13 @@ function Game() {
       <header>
         <div className='title'> ISLANDER WORDLE </div>
       </header>
-      <Board inputs={inputs}
-             rowLength={rowLength} 
-             boardLength={boardLength} 
-             currentRow={currentRow}
-             rowStates={rowStates}></Board>
+      <div id='board-container'>
+        <Board inputs={inputs}
+              rowLength={rowLength} 
+              boardLength={boardLength} 
+              currentRow={currentRow}
+              rowStates={rowStates}></Board>
+      </div>
       <GameKeyboard handleInput={handleInput}
                     handleSubmission={handleRowSubmission} 
                     maxInputLength={rowLength} ></GameKeyboard>

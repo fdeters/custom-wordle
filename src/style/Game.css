@@ -1,5 +1,10 @@
 .game {
-  margin: auto;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -7,6 +12,7 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 5vh;
+  padding-bottom: 4px;
   border-bottom: 1px solid #d3d6da;
 }
 
@@ -20,4 +26,11 @@ header .title{
   left: 0;
   right: 0;
   pointer-events: none;
+}
+
+#board-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 }

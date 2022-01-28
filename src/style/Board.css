@@ -1,7 +1,7 @@
 .game-board {
+    width: 350px;
+    height: 420px;
+
     display: grid;
-    align-items: center;
-    margin: auto;
-    padding-top: 10vh;
-    padding-bottom: 60px;
+    padding: 10px;
 }
